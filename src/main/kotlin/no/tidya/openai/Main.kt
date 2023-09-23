@@ -13,9 +13,13 @@ import no.tidya.openai.model.ChatCompletionResponse
 import no.tidya.openai.model.Message
 
 
-suspend fun main() {
-    val apiKey = fetchApiKey()
+suspend fun main(args : Array<String>) {
+    if (args.isEmpty()) {
+        println("Usage: ./gradlew run --args=\"'<message>'\"")
+        return
+    }
 
+    val apiKey = fetchApiKey()
     val client = HttpClient(CIO) {
         install(ContentNegotiation) {
             json(Json {
@@ -29,7 +33,7 @@ suspend fun main() {
     val chatCompletionRequest = ChatCompletionRequest(
         model = "gpt-3.5-turbo", messages = listOf(
             Message(role = "system", content = "You are Arnold Schwarzenegger"),
-            Message(role = "user", content = "Describe all your movies in one sentence")
+            Message(role = "user", content = args[0])
         )
     )
 

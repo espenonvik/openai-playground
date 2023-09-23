@@ -29,5 +29,5 @@ kotlin {
 }
 
 application {
-    mainClass.set("no.tidya.openai.OpenAIClient.kt")
+    mainClass.set("no.tidya.openai.MainKt")
 }
