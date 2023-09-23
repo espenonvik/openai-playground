@@ -9,7 +9,7 @@ OPENAI_API_KEY=<your-api-key>
 ```
 
 
-## To ask Arnold a question run as follows with a message of your choice
+## To ask Arnold a question
 
 ```
 ./gradlew run --args "'Describe all your Terminator movies in one sentence'"
